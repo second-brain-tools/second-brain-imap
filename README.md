@@ -100,7 +100,7 @@ uv run scripts/smoke.py             # installs the checkout with uvx and talks M
 The tests run against an in-memory mail server ([tests/fakes.py](tests/fakes.py)) that answers in
 the shapes a live Bridge 3.27 gave through IMAPClient 4.3.
 
-Sign-in, the audit log, HTTP serving and the settings-file rules are
+Sign-in, the audit log, HTTP serving, the settings-file rules and the text cleaner are
 [second-brain-core](https://github.com/second-brain-tools/second-brain-core)'s, shared with
 second-brain-joplin: fix shared code there, release it, then move this package's pin. To try an
 unreleased core change, point uv at a checkout for the moment, and don't commit it

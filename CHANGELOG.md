@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- **The text cleaner is second-brain-core's** (0.2.0), shared with the calendar server, instead of
+  this package's own copy (#9). Behaviour is unchanged, except that HTML that can't be read now
+  becomes "[This HTML could not be turned into text.]". The invisible-character test is core's
+  shared check, which now also catches line and paragraph separators.
+
 ## [0.1.0] — First release
 
 The first working server: read-only access to an IMAP mailbox for an MCP client, built for Proton

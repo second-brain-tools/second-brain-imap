@@ -32,7 +32,7 @@ dependencies = [
     "python-dotenv>=1.0",
     # Sign-in, the audit log and HTTP serving, shared with the other Second Brain
     # servers. 0.x: a new minor version may change its interfaces.
-    "second-brain-core>=0.1.1,<0.2",
+    "second-brain-core>=0.2,<0.3",
 ]
 
 [dependency-groups]

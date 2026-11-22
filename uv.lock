@@ -1748,7 +1748,7 @@ wheels = [
 
 [[package]]
 name = "second-brain-core"
-version = "0.1.1"
+version = "0.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "fastmcp" },
@@ -1757,9 +1757,9 @@ dependencies = [
     { name = "pydantic" },
     { name = "python-dotenv" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/71/e8/8ae77beac8605152dacb2d0a9fe999e30541961da3fa4af17b0cfe16ee3f/second_brain_core-0.1.1.tar.gz", hash = "sha256:cb00309d1357be5ed4ef40fe5d5e2f638b562794beaac5329ed17c1431945409", size = 443701, upload-time = "2026-11-22T12:56:31.848Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/20/92/1b77277e1202ff06cbe27c37757079ae18f1b0a636f3c1e9f0d889f3ffad/second_brain_core-0.2.0.tar.gz", hash = "sha256:36a0a05c7ebc4a1595e2cff88c52f8b5b77e533db5736db9b7d57f1d852b4b14", size = 457307, upload-time = "2026-11-22T13:52:42.449Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/64/13/618e8065adb03aef3973211fec33070d710886dcacafed3b00e49941e75b/second_brain_core-0.1.1-py3-none-any.whl", hash = "sha256:d46ca3ba1e9727b1d01e4a79a8feaa0bb4f07044da343e43738177cc0b6288a4", size = 55633, upload-time = "2026-11-22T12:56:30.39Z" },
+    { url = "https://files.pythonhosted.org/packages/57/58/72c9c4cf6edb3c0db132ed32353a0916a0b03e5678196ade059026e34b3c/second_brain_core-0.2.0-py3-none-any.whl", hash = "sha256:284c70f9bbb510870ebee5b6dfb9d9f6812c22a2e4882c3c3d656abdfab72143", size = 64305, upload-time = "2026-11-22T13:52:41.314Z" },
 ]
 
 [[package]]
@@ -1790,7 +1790,7 @@ requires-dist = [
     { name = "imapclient", specifier = ">=4.3" },
     { name = "pydantic", specifier = ">=2" },
     { name = "python-dotenv", specifier = ">=1.0" },
-    { name = "second-brain-core", specifier = ">=0.1.1,<0.2" },
+    { name = "second-brain-core", specifier = ">=0.2,<0.3" },
 ]
 
 [package.metadata.requires-dev]
