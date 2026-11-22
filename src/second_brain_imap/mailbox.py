@@ -19,6 +19,8 @@ from dataclasses import dataclass
 from datetime import UTC, date, datetime
 from typing import Any
 
+from second_brain_core.textclean import clean_line, html_to_text, tidy
+
 from . import ids, imap, mime
 from .config import Settings
 from .errors import STALE_ID_MESSAGE, MailError, MailNotFoundError, MailServerError
@@ -39,7 +41,6 @@ from .models import (
     SearchResults,
 )
 from .scope import VIEW_ROLES, FolderInfo, FolderScope, scope_of
-from .textclean import clean_line, html_to_text, tidy
 
 # The newest matches a search looks at. A broader search reports ``more``.
 MAX_CONSIDERED = 2000

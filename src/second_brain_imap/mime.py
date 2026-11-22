@@ -27,7 +27,7 @@ from email.utils import collapse_rfc2231_value, decode_rfc2231, getaddresses
 from typing import Any
 from urllib.parse import unquote
 
-from .textclean import clean_line
+from second_brain_core.textclean import clean_line
 
 # The header fields fetched for a message that is listed or read.
 HEADER_FIELDS = ("DATE", "FROM", "TO", "CC", "SUBJECT", "MESSAGE-ID", "X-PM-INTERNAL-ID")
