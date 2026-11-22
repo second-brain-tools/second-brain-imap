@@ -1,0 +1,51 @@
+# Declarative PM spec for second-brain-imap.
+# Applied by hand with the `gh` CLI or the GitHub UI; no automated sync yet.
+
+labels:
+  # component labels
+  - name: "component:imap"
+    color: "0075ca"
+    description: "The IMAP client, the mailbox and message handling"
+  - name: "component:mcp"
+    color: "0075ca"
+    description: "MCP server and tool definitions"
+  - name: "component:docs"
+    color: "0075ca"
+    description: "Documentation"
+  - name: "component:ci"
+    color: "0075ca"
+    description: "CI/CD and build"
+
+  # meta labels
+  - name: "epic"
+    color: "6f42c1"
+    description: "Multi-issue initiative"
+  - name: "backlog"
+    color: "d4c5f9"
+    description: "Unscheduled work"
+  - name: "needs-triage"
+    color: "e11d48"
+    description: "Not yet triaged"
+  - name: "blocked"
+    color: "b60205"
+    description: "Blocked by another issue or external dependency"
+  - name: "good first issue"
+    color: "7057ff"
+    description: "Good for newcomers"
+  - name: "help wanted"
+    color: "008672"
+    description: "Extra attention is needed"
+  - name: "dependencies"
+    color: "0366d6"
+    description: "Dependency updates (Dependabot)"
+  - name: "github_actions"
+    color: "000000"
+    description: "GitHub Actions updates (Dependabot)"
+
+milestones:
+  - title: "v0.1 — First release"
+    description: "Read-only search and read of an IMAP mailbox, public and on PyPI"
+  - title: "v0.2 — Attachments and threads"
+    description: "Read an attachment, show a conversation, paging and filters"
+  - title: "v0.3 — Search index"
+    description: "Lasting message ids, a search index by words and by meaning, saving an attachment"
