@@ -3,6 +3,7 @@
 import logging
 import ssl
 import stat
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -174,7 +175,8 @@ def test_pin_cert_saves_then_recognises_then_refuses_a_change(
     out = capsys.readouterr().out
     assert out.startswith(f"Saved: {path}\nSHA-256 ") and out.count(":") >= 31
     assert ssl.PEM_cert_to_DER_cert(path.read_text()) == b"certificate-one"
-    assert stat.S_IMODE(path.stat().st_mode) == 0o600
+    if sys.platform != "win32":  # Windows has no POSIX file modes
+        assert stat.S_IMODE(path.stat().st_mode) == 0o600
 
     run("pin-cert")
     assert capsys.readouterr().out.startswith("Already saved:")
