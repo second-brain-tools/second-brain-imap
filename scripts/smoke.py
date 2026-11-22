@@ -21,6 +21,7 @@ import argparse
 import asyncio
 import json
 import os
+import signal
 import socket
 import subprocess
 import sys
@@ -97,11 +98,14 @@ async def smoke(spec: str, python: str | None, expect: str | None) -> None:
         await check_client(client, "stdio", expect)
 
     port = free_port()
+    # Its own process group (POSIX), so stopping it stops the server uvx started too.
+    group: dict[str, Any] = {} if sys.platform == "win32" else {"start_new_session": True}
     server = subprocess.Popen(
         uvx(spec, python, "serve", "--transport", "http", "--no-auth", "--port", str(port)),
         env=env,
         stderr=subprocess.PIPE,
         text=True,
+        **group,
     )
     base = f"http://127.0.0.1:{port}"
     try:
@@ -132,11 +136,23 @@ async def smoke(spec: str, python: str | None, expect: str | None) -> None:
             raise AssertionError("http: an unknown Host header was accepted")
         print("ok  http: /healthz says the mail server is down (503); an unknown Host is refused")
     finally:
-        server.terminate()
-        try:
-            server.communicate(timeout=10)
-        except subprocess.TimeoutExpired:
-            server.kill()
+        stop(server)
+
+
+def stop(process: subprocess.Popen[str]) -> None:
+    """Stop uvx and the server it started (a plain kill leaves the server running)."""
+    if process.poll() is None:
+        if sys.platform == "win32":
+            subprocess.run(
+                ["taskkill", "/PID", str(process.pid), "/T", "/F"], capture_output=True, check=False
+            )
+        else:
+            os.killpg(process.pid, signal.SIGTERM)
+    try:
+        process.communicate(timeout=30)
+    except subprocess.TimeoutExpired:
+        process.kill()
+        process.communicate()
 
 
 def main() -> None:
