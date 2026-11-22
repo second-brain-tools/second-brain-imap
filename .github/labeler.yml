@@ -1,0 +1,39 @@
+component:imap:
+  - changed-files:
+      - any-glob-to-any-file:
+          - src/second_brain_imap/imap.py
+          - src/second_brain_imap/mailbox.py
+          - src/second_brain_imap/mime.py
+          - src/second_brain_imap/textclean.py
+          - src/second_brain_imap/ids.py
+          - src/second_brain_imap/scope.py
+          - src/second_brain_imap/config.py
+          - src/second_brain_imap/errors.py
+
+component:mcp:
+  - changed-files:
+      - any-glob-to-any-file:
+          - src/second_brain_imap/__init__.py
+          - src/second_brain_imap/server.py
+          - src/second_brain_imap/cli.py
+          - src/second_brain_imap/context.py
+          - src/second_brain_imap/identity.py
+          - src/second_brain_imap/models.py
+          - src/second_brain_imap/tools/**
+
+component:docs:
+  - changed-files:
+      - any-glob-to-any-file:
+          - docs/**
+  - changed-files:
+      - any-glob-to-any-file:
+          - "*.md"
+
+component:ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/**
+          - scripts/**
+          - pyproject.toml
+          - uv.lock
+          - .pre-commit-config.yaml

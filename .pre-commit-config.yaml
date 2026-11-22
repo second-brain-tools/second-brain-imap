@@ -1,0 +1,23 @@
+# Run `uv run pre-commit install` once to enable these on every commit.
+# This config is the authoritative lint gate: CI runs `pre-commit run --all-files`
+# (see .github/workflows/checks.yml), so the ruff version pinned here is the one
+# that gates the project.
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.5
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: check-yaml
+      - id: check-toml
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.12
+    hooks:
+      - id: actionlint
